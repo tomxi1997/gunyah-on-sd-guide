@@ -167,7 +167,7 @@ Failed to remove memlock rlimit: Status(-5, EX_ILLEGAL_STATE): 'Permission denie
 Error: Failed to connect to VirtualizationService
 ```
 
-If you encounter this error on `vm run` or `vm info` comamnds, you need to run following command (or disable SELinux):
+If you encounter this error on `vm run` or `vm info` commands, you need to run following command (or disable SELinux):
 ```
 magiskpolicy --live "allow virtualizationservice magisk process { setrlimit }"
 ```
