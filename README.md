@@ -3,7 +3,7 @@
 A guide to run protected VM with gunyah on a SD 8 elite device. The VM can host microdroid kernel or debian or any arm64 linux.
 
 > [!NOTE]  
-> I've updated the article to no longer use pvmfw. If you'd like to see the older version, you can find it [here](https://github.com/polygraphene/gunyah-on-sd-guide/blob/f97f81afc38cdda941e39e6a9e574f916ba6087f/README.md).
+> For sd 8 gen 2 or gen 3 devices, you might need this guide: https://github.com/polygraphene/gunyah-on-sd-guide/blob/main/PVMFW.md
 
 ## Environment
 
