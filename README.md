@@ -158,6 +158,18 @@ root@localhost:~#
 It will launch in maintenance shell because some services are not working.
 This root fs image contains some services for Terminal App. Those services should be disabled. Also needs proper fstab.
 
+### 6. Edit root fs
+To launch systemd properly (not maintenance shell), we need to disable some services for our VM. Launch VM and run the following commands.
+If you can't edit file because of readonly filesystem, use `--params 'root=/dev/vda rw init=/bin/sh'`.
+
+```sh
+# (In the VM)
+# cd /etc/systemd/system
+# rm forwarder_guest_launcher.service ip_addr_reporter.service shutdown_runner.service ttyd.service virtiofs.service virtiofs_internal.service
+# echo "/dev/vda / ext4 rw,discard,errors=remount-ro,x-systemd.growfs 0 1" > /etc/fstab
+# reboot (or exit)
+```
+
 ## FAQ
 
 ### `vm` command causes `Permission denied` error 
@@ -212,7 +224,7 @@ https://cs.android.com/android/platform/superproject/main/+/main:packages/module
 
 ## Note
 
-1. I will add an explanation on how to use the network later.
+1. For networking setup see [Network instruction](https://github.com/polygraphene/gunyah-on-sd-guide/blob/main/NETWORK.md)
 2. I'm trying to enable graphics acceleration (virtio\_gpu), but currently not working. If anyone knows anything about it, please let me know.
 3. [packages/modules/Virtualization/docs](https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Virtualization/docs/;drc=2cb8e7397b171e0eea0d0c16e099a004da157e80) contains many documents about AVF and pvmfw.
 
